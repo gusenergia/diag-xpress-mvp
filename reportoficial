@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório Diag Xpress - Cliente Nome</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 2rem; color: #000; }
+    header { background: #1D2615; color: #FFF; padding: 1rem; text-align: center; }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    h1, h2 { color: #861A1A; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; }
+    .client-info, .summary, .opportunities, .conclusion { margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    th, td { border: 1px solid #DDD; padding: 0.75rem; text-align: left; }
+    th { background: #E49400; color: #1D2615; }
+    .cta { display: block; width: fit-content; margin: 2rem auto; padding: 0.75rem 1.5rem; background: #861A1A; color: #FFF; text-decoration: none; border-radius: 4px; }
+    footer { text-align: center; color: #666; font-size: 0.9rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Lepinsk Ecotech</div>
+    <p>Relatório Diag Xpress - Análise Gratuita de Fatura</p>
+  </header>
+
+  <section class="client-info">
+    <h2>1. Dados do Cliente</h2>
+    <table>
+      <tr><th>Razão Social</th><td>[Nome do Cliente]</td></tr>
+      <tr><th>CNPJ</th><td>[00.000.000/0001-00]</td></tr>
+      <tr><th>Distribuidora</th><td>[Elektro | Enel | etc.]</td></tr>
+      <tr><th>Consumo Médio Mensal</th><td>[kWh]</td></tr>
+      <tr><th>Fatura Média Mensal</th><td>R$ [valor]</td></tr>
+    </table>
+  </section>
+
+  <section class="summary">
+    <h2>2. Resumo Executivo</h2>
+    <p>O Diag Xpress identificou oportunidades que podem gerar até <strong>R$ [economia estimada]</strong> por mês (<strong>[x]%</strong> de redução).</p>
+  </section>
+
+  <section class="opportunities">
+    <h2>3. Oportunidades Acionadas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Oportunidade</th>
+          <th>Descrição</th>
+          <th>Economia Mensal (R$)</th>
+          <th>Economia Anual (R$)</th>
+          <th>Impacto (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Armazenamento</td>
+          <td>Uso de baterias para pico de carga</td>
+          <td>R$ [valor]</td>
+          <td>R$ [valor]</td>
+          <td>[x]%</td>
+        </tr>
+        <tr>
+          <td>GD Local</td>
+          <td>Instalação de painéis fotovoltaicos</td>
+          <td>R$ [valor]</td>
+          <td>R$ [valor]</td>
+          <td>[x]%</td>
+        </tr>
+        <tr>
+          <td>Mercado Livre</td>
+          <td>Contratação com comercializadora</td>
+          <td>R$ [valor]</td>
+          <td>R$ [valor]</td>
+          <td>[x]%</td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+  </section>
+
+  <section class="conclusion">
+    <h2>4. Próximos Passos</h2>
+    <ul>
+      <li>Agendar visita técnica para validação das propostas.</li>
+      <li>Desenvolver proposta comercial detalhada.</li>
+      <li>Definir cronograma de implementação.</li>
+    </ul>
+    <a href="#" class="cta">Agendar Call de 30 minutos</a>
+  </section>
+
+  <footer>
+    © 2025 Lepinsk Ecotech - Todos os direitos reservados
+  </footer>
+</body>
+</html>
