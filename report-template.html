@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Relatório Diag Xpress</title>
+  <style>
+    :root {
+      --color-primary: #1D2615; /* Verde Musgo */
+      --color-text: #000000;    /* Preto */
+      --color-accent: #861A1A;  /* Vermelho Queimado */
+      --color-highlight: #E49400; /* Laranja */
+      --bg-light: #FFFFFF;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: var(--color-text);
+      background-color: var(--bg-light);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    header h2 {
+      margin: 0;
+      color: var(--color-primary);
+    }
+    header p {
+      margin: 4px 0 0;
+    }
+    section h3 {
+      margin-bottom: 12px;
+      color: var(--color-accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    thead th {
+      background-color: var(--color-primary);
+      color: var(--bg-light);
+    }
+    tfoot td {
+      font-weight: bold;
+      border-top: 2px solid var(--color-accent);
+    }
+    .icons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 32px;
+    }
+    .icons .card {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ul.opportunities {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    ul.opportunities li {
+      padding: 12px;
+      border: 1px solid var(--color-primary);
+      border-radius: 4px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid var(--color-accent);
+      padding-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Cabeçalho -->
+  <header>
+    <div>
+      <h2>Cliente ABC</h2>
+      <p>contato@cliente.abc | +55 (11) 9xxxx-xxxx</p>
+    </div>
+    <div>
+      <img src="logo-lepinsk.png" alt="Logo Lepinsk" style="height:48px;">
+    </div>
+  </header>
+
+  <!-- 2. Dados da fatura -->
+  <section>
+    <h3>Dados da Fatura</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Fatura (R$)</th>
+          <th>Consumo (kWh)</th>
+          <th>NS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jul/25</td>
+          <td>12.345,67</td>
+          <td>1.280</td>
+          <td>–</td>
+        </tr>
+        <!-- mais linhas conforme histórico -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 3. Indicadores / ícones -->
+  <section class="icons">
+    <div class="card"><img src="assets/icon-demanda.svg" alt="Demanda" width="40"></div>
+    <div class="card"><img src="assets/icon-tarifas.svg" alt="Tarifas" width="40"></div>
+    <div class="card"><img src="assets/icon-gd.svg" alt="Geração Distribuída" width="40"></div>
+    <!-- adicione mais cards se quiser -->
+  </section>
+
+  <!-- 4. Oportunidades de Economia -->
+  <section>
+    <h3>Oportunidades de Economia</h3>
+    <ul class="opportunities">
+      <li>
+        <strong>Ajuste de demanda contratada</strong><br>
+        Estimativa: R$ 450 | 120 kWh | 8 %
+      </li>
+      <li>
+        <strong>Estrutura tarifária</strong><br>
+        Estimativa: R$ 300 | 80 kWh | 5 %
+      </li>
+      <li>
+        <strong>Fontes alternativas</strong><br>
+        Estimativa: R$ 1 200 | 450 kWh | 18 %
+      </li>
+      <!-- demais itens -->
+    </ul>
+  </section>
+
+  <!-- 5. Rodapé -->
+  <footer>
+    <div>
+      <p>Total de Economia:<br>
+      R$ 1 950 | 650 kWh | 31 %</p>
+    </div>
+    <div style="text-align:right;">
+      <p>__________________________</p>
+      <p><em>Eng. Fulano de Tal</em><br><small>CREA 123.456</small></p>
+    </div>
+  </footer>
+
+</body>
+</html>
