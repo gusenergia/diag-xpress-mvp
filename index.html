@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diag Xpress MVP</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .toggles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+    .toggle-label { display: flex; align-items: center; }
+    .toggle-label input { margin-right: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    tfoot td { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Diag Xpress - MVP</h1>
+  <div class="toggles">
+    <label class="toggle-label"><input type="checkbox" data-key="armazenamento" checked>Armazenamento & VE</label>
+    <label class="toggle-label"><input type="checkbox" data-key="fontes" checked>Fontes Alternativas</label>
+    <label class="toggle-label"><input type="checkbox" data-key="demanda" checked>Ajuste de Demanda</label>
+    <label class="toggle-label"><input type="checkbox" data-key="tarifas" checked>Estrutura Tarifária</label>
+    <label class="toggle-label"><input type="checkbox" data-key="encargos" checked>Encargos Setoriais</label>
+    <label class="toggle-label"><input type="checkbox" data-key="reativa" checked>Energia Reativa & FP</label>
+    <label class="toggle-label"><input type="checkbox" data-key="otimizacao" checked>Otimização & Monitoramento</label>
+  </div>
+  <table id="results">
+    <thead>
+      <tr><th>Oportunidade</th><th>R$</th><th>kWh</th><th>%</th></tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr><td>Total</td><td id="total-r$">0</td><td id="total-kwh">0</td><td id="total-pct">0%</td></tr>
+    </tfoot>
+  </table>
+  <script>
+    const data = {
+      armazenamento: { label: 'Armazenamento & VE', valor: 1200, kwh: 450, pct: 18 },
+      fontes:        { label: 'Fontes Alternativas', valor: 1000, kwh: 400, pct: 15 },
+      demanda:       { label: 'Ajuste de Demanda', valor: 500, kwh: 120, pct: 8 },
+      tarifas:       { label: 'Estrutura Tarifária', valor: 300, kwh: 80, pct: 5 },
+      encargos:      { label: 'Encargos Setoriais', valor: 200, kwh: 50, pct: 3 },
+      reativa:       { label: 'Energia Reativa & FP', valor: 150, kwh: 40, pct: 2 },
+      otimizacao:    { label: 'Otimização & Monitoramento', valor: 250, kwh: 70, pct: 4 }
+    };
+
+    const tbody = document.querySelector('#results tbody');
+    const totalR = document.getElementById('total-r$');
+    const totalK = document.getElementById('total-kwh');
+    const totalP = document.getElementById('total-pct');
+
+    function updateTable() {
+      tbody.innerHTML = '';
+      let sumR = 0, sumK = 0, sumP = 0;
+      document.querySelectorAll('.toggle-label input').forEach(cb => {
+        const key = cb.dataset.key;
+        if (cb.checked) {
+          const item = data[key];
+          sumR += item.valor;
+          sumK += item.kwh;
+          sumP += item.pct;
+          const row = `<tr><td>${item.label}</td><td>${item.valor.toLocaleString('pt-BR')}</td><td>${item.kwh}</td><td>${item.pct}%</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        }
+      });
+      totalR.textContent = sumR.toLocaleString('pt-BR');
+      totalK.textContent = sumK;
+      totalP.textContent = sumP + '%';
+    }
+
+    document.querySelectorAll('.toggle-label input').forEach(cb => cb.addEventListener('change', updateTable));
+    updateTable();
+  </script>
+</body>
+</html>
