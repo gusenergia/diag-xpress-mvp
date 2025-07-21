@@ -6,11 +6,11 @@
   <title>Relatório Diag Xpress</title>
   <style>
     :root {
-      --color-moss: #1D2615;       /* Verde Musgo */
-      --color-black: #000000;      /* Preto */
-      --color-burnt: #861A1A;      /* Vermelho Queimado */
-      --color-orange: #E49400;     /* Laranja */
-      --bg-light: #F7F7F7;         /* Fundo Claro */
+      --color-moss: #1D2615;
+      --color-black: #000000;
+      --color-burnt: #861A1A;
+      --color-orange: #E49400;
+      --bg-light: #F7F7F7;
     }
     body {
       margin: 0;
@@ -31,91 +31,132 @@
       background-color: var(--color-moss);
       color: var(--bg-light);
       padding: 16px;
-      text-align: center;
-      font-size: 1.1em;
       border-bottom: 4px solid var(--color-burnt);
     }
+    .client-data {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .client-data .field {
+      background-color: var(--bg-light);
+      padding: 12px;
+      border: 1px solid var(--color-moss);
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
     .cards {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       padding: 16px;
-      background-color: var(--color-moss);
+      background-color: var(--bg-light);
     }
     .card {
       background-color: var(--bg-light);
       color: var(--color-moss);
+      border: 2px solid var(--color-moss);
       border-radius: 8px;
-      padding: 12px;
-      margin: 8px;
-      flex: 1 1 calc(25% - 16px);
+      padding: 20px;
       text-align: center;
       font-weight: bold;
-      min-width: 140px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .details {
+    .actions {
+      padding: 16px;
+    }
+    .actions table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    .actions th, .actions td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    .actions thead th {
       background-color: var(--color-moss);
       color: var(--bg-light);
-      padding: 20px;
-      margin: 16px;
-      border-radius: 8px;
-      font-size: 0.95em;
-      line-height: 1.4;
-    }
-    .details h3 {
-      margin-top: 0;
-      color: var(--color-orange);
-    }
-    .details ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .details ul li {
-      margin-bottom: 8px;
     }
     footer {
       background-color: var(--color-moss);
       color: var(--bg-light);
       text-align: center;
       padding: 16px;
-      font-size: 1em;
       border-top: 4px solid var(--color-burnt);
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
   <div class="report-container">
-    <!-- 1. Dados do Cliente -->
+    <!-- 1. Dados do Cliente e Contrato -->
     <header>
-      Dados do Cliente e Contrato
+      <h2>Dados do Cliente e Contrato</h2>
+      <div class="client-data">
+        <div class="field"><strong>Cliente:</strong> Empresa XYZ Ltda.</div>
+        <div class="field"><strong>CNPJ:</strong> 12.345.678/0001-90</div>
+        <div class="field"><strong>Contato:</strong> João Silva</div>
+        <div class="field"><strong>E-mail:</strong> joao.silva@xyz.com</div>
+        <div class="field"><strong>Telefone:</strong> +55 (11) 91234-5678</div>
+        <div class="field"><strong>Contrato:</strong> GD Remota - Plano Ouro</div>
+      </div>
     </header>
 
     <!-- 2. Cards de Oportunidades -->
     <div class="cards">
-      <div class="card">Armazenamento &amp; VE</div>
-      <div class="card">Fontes Alternativas</div>
-      <div class="card">Ajuste de Demanda</div>
+      <div class="card">Armazenamento</div>
+      <div class="card">Mercado Livre de Energia</div>
+      <div class="card">GD Remota</div>
+      <div class="card">GD Local</div>
       <div class="card">Estrutura Tarifária</div>
-      <div class="card">Encargos Setoriais</div>
-      <div class="card">Reativa &amp; FP</div>
-      <div class="card">GD &amp; ML</div>
-      <div class="card">Otimização &amp; SCADA/IoT</div>
+      <div class="card">Energia Reativa</div>
     </div>
 
-    <!-- 3. Detalhes das oportunidades acionadas -->
-    <div class="details">
+    <!-- 3. Tabela de Oportunidades Acionadas -->
+    <div class="actions">
       <h3>Oportunidades Acionadas</h3>
-      <ul>
-        <li><strong>Ajuste de Demanda Contratada:</strong> Economia R$ 500 | 120 kWh | 8% (Dificuldade: Baixa, Investimento: Não)</li>
-        <li><strong>Estrutura Tarifária:</strong> Economia R$ 300 | 80 kWh | 5% (Dificuldade: Média, Investimento: Não)</li>
-        <li><strong>Fontes Alternativas:</strong> Economia R$ 1.200 | 450 kWh | 18% (Dificuldade: Alta, Investimento: Sim)</li>
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Oportunidade</th>
+            <th>Economia (R$)</th>
+            <th>Economia (kWh)</th>
+            <th>% Economia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Armazenamento</td>
+            <td>600,00</td>
+            <td>200</td>
+            <td>10%</td>
+          </tr>
+          <tr>
+            <td>GD Local</td>
+            <td>800,00</td>
+            <td>300</td>
+            <td>12%</td>
+          </tr>
+          <tr>
+            <td>Estrutura Tarifária</td>
+            <td>300,00</td>
+            <td>80</td>
+            <td>5%</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. Total Estimado -->
     <footer>
-      Economia Total Estimada: R$ 2.000 | 650 kWh | 31%
+      Economia Total Estimada: R$ 1.700 | 580 kWh | 27%
     </footer>
   </div>
 </body>
